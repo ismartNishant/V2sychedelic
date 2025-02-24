@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Elsie:wght@400;900&family=Irish+Grover&family=Italianno&family=Sacramento&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/satoshi/Satoshi-Variable.ttf');
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Psychedelic';
+  src: url('/fonts//psychedelic-font/psychedelic.ttf');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Tanker';
+  src: url('/fonts/tanker/Tanker-Regular.woff');
+  font-style: normal;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
+
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  .font-Satoshi{
+    font-family: "Satoshi", sans-serif;
+  }
+  .font-Psychedelic{
+    font-family: 'Psychedelic';
+  }
+  .font-Irish-Grover{
+    font-family: "Irish Grover", serif;
+  }
+  .font-Elsie{
+    font-family: "Elsie", serif;
+  }
+  .font-sacramento {
+    font-family: "Sacramento", serif;
+  }
+  .font-Anton{
+    font-family: "Anton", serif;
+  }
+  .font-italianno {
+    font-family: "Italianno", serif;
+  }
+  .font-Tanker{
+    font-family: 'Tanker';
+  }
+  body {
+    @apply bg-black text-foreground overflow-x-hidden font-Satoshi;
+  }
+  
+}
+
+.black-svg {
+  fill: black;
+  fill-opacity: 0.2; /* Default: Slightly transparent */
+}
+
+@media (max-width: 768px) { /* iPad size and below */
+  .black-svg {
+    fill-opacity: 1; /* Fully black */
+  }
+}
+
+
+.slider-container .slick-slide {
+  transition: all 0.3s ease;
+  transform: scale(0.85);
+  opacity: 0.5;
+}
+
+.slider-container .slick-center {
+  transform: scale(1);
+  opacity: 1;
+  z-index: 10;
+}
+
+.slider-container .slick-list {
+  padding: 40px 0;
+  margin: 0 -8px;
+}
+/* 
+Button hover animations */
+.slider-container .navbtn:hover {
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* Ensure buttons stay on top */
+.slider-container .navbtn  {
+  z-index: 999;
+}
