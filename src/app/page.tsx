@@ -57,11 +57,10 @@ const ScrollImageEffect = () => {
         end: "bottom top",
         scrub: 3,
         pin: true,
-        markers: true, // Remove in production
       },
     });
 
-    // **Step 1: Hide Backgrounds**
+  
     globalTl.to([bg1Ref.current, ".mobile-top-header", ".desktop-bottom-header", beyondRef.current], {
       opacity: 0,
       duration: 0.2,
@@ -82,11 +81,11 @@ const ScrollImageEffect = () => {
 
     globalTl.to(".slide-1", {
       backgroundColor: "white"
-    }, "-=0.3"); // Slight overlap for smooth transition
+    }, "-=0.3"); 
 
     globalTl.to([dottedBgRef.current, humanBgRef.current], { opacity: 1, duration: 0.5, autoAlpha: 1 }, "-=0.5");
 
-    // **Step 2: Start Slide Animation**
+   
     const startSlideTl = gsap.timeline();
 
     startSlideTl
@@ -101,21 +100,21 @@ const ScrollImageEffect = () => {
         duration
           : 0.3
       })
-      .to(".star-slide", { opacity: 1, duration: 0.3, autoAlpha: 1 }) // Show start slide
-      .to(".amplify-btn", { opacity: 0, duration: 0.3, autoAlpha: 0 }) // Show start slide
+      .to(".star-slide", { opacity: 1, duration: 0.3, autoAlpha: 1 }) 
+      .to(".amplify-btn", { opacity: 0, duration: 0.3, autoAlpha: 0 }) 
 
-      .to(".star-slide", { opacity: 0, duration: 0.3, autoAlpha: 0 }) // Show start slide
-
-
-
-    globalTl.add(startSlideTl); // Run after background hides
-
-
-    globalTl.to(".goal-slide", { opacity: 1, duration: 0.3, autoAlpha: 1 }, "-=0.3"); // Show goal slide
+      .to(".star-slide", { opacity: 0, duration: 0.3, autoAlpha: 0 }) 
 
 
 
-    // **Step 3: Main Animation**
+    globalTl.add(startSlideTl); 
+
+
+    globalTl.to(".goal-slide", { opacity: 1, duration: 0.3, autoAlpha: 1 }, "-=0.3"); 
+
+
+
+    
     const mainTl = gsap.timeline();
 
     mainTl.fromTo(".Goal-btn",
@@ -140,18 +139,17 @@ const ScrollImageEffect = () => {
       );
     });
 
-    // Hide Goal Button after animation sequence
+   
     mainTl.to(".Goal-btn", { opacity: 0, duration: 0.3, autoAlpha: 0 }, "+=0.3");
 
-    globalTl.add(mainTl); // Add to the main timeline
+    globalTl.add(mainTl); 
 
-     globalTl.to(".Goal-slide", { opacity: 0, duration: 0.3, autoAlpha: 0 }, "-=0.3"); // hide goal slide
+     globalTl.to(".Goal-slide", { opacity: 0, duration: 0.3, autoAlpha: 0 }, "-=0.3"); 
 
-     globalTl.to(".Thoughts-slide", { opacity: 1, duration: 0.3, autoAlpha: 1 }, "-=0.3"); // Show  th slide
+     globalTl.to(".Thoughts-slide", { opacity: 1, duration: 0.3, autoAlpha: 1 }, "-=0.3"); 
 
 
-     //
-      // **Step 3: Main Animation**
+    
     const secTl = gsap.timeline();
 
     mainTl.fromTo(".Thoughts-btn",
@@ -176,10 +174,10 @@ const ScrollImageEffect = () => {
       );
     });
 
-    // Hide Goal Button after animation sequence
+   
     secTl.to(".Thoughts-btn", { opacity: 0, duration: 0.3, autoAlpha: 0 }, "+=0.3");
 
-    globalTl.add(secTl); // Add to the main timeline
+    globalTl.add(secTl); 
 
     
 
@@ -191,7 +189,7 @@ const ScrollImageEffect = () => {
   return (
 
     <section ref={maincontainerRef} className="transition-colors duration-500 overflow-x-hidden relative w-full h-full">
-      {/* Main Slide Section */}
+  
       <div className="slide-1 h-screen overflow-hidden px-4 pt-4 md:px-5 md:pt-5 relative bg-black">
         {/* Dotted Background Image */}
         <Image
@@ -290,7 +288,7 @@ const ScrollImageEffect = () => {
         </div>
       </div>
 
-      {/* Inner Slide 2 */}
+ 
       <div className="star-slide overflow-hidden absolute top-0 left-0 w-full h-[100dvh]">
         <button className=" amplify-btn absolute font-Satoshi text-white font-bold top-[44%] left-[50%] translate-x-[-50%] translate-y-[-40%] px-6 py-2 text-sm md:text-xl rounded-full bg-gradient-to-r from-[#FF7676] via-[#2C4CFF] to-[#FF4000] transition-all duration-300">
           <span className="text-content">Amplify your Life</span>
@@ -339,7 +337,7 @@ const ScrollImageEffect = () => {
           <div className="absolute top-0 left-0 w-full h-full z-10 bg-black/10"></div>
         </div>
 
-        {/* Image 2 */}
+    
         <div ref={img2Ref} className="absolute slide3img2 overflow-hidden rounded-xl w-[250px] h-36 left-[60%] top-36 hidden lg:block">
           <Image
             src="/img/slide1/2.png"
@@ -349,7 +347,7 @@ const ScrollImageEffect = () => {
             className="object-cover "
           />
         </div>
-        {/* Image 3 */}
+       
         <div ref={img3Ref} className="absolute slide3img3 overflow-hidden rounded-xl w-28 h-40 left-[32%] top-[50%] hidden lg:block">
           <Image src="/img/slide1/3.png" alt="Image 3" fill priority className="object-cover" />
         </div>
